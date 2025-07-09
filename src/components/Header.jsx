@@ -3,7 +3,7 @@ import logo from "../assets/logo.svg";
 
 const Header = () => {
   return (
-    <header className="container mx-auto max-w-7xl pt-6 flex sm:flex-row gap-4 justify-between items-center">
+    <header className="container mx-auto max-w-7xl px-5 pt-6 flex sm:flex-row gap-4 justify-between items-center">
       <div className="flex items-center gap-5 sm:gap-10">
         <img
           src={logo}
