@@ -6,17 +6,28 @@ import Coventry from "../../assets/Coventry.svg";
 import Cranfield from "../../assets/Cranfield.svg";
 import Derby from "../../assets/Derby.svg";
 import Middlesex from "../../assets/Middlesex.webp";
-import Northumbria from "../../assets/Northumbria.svg";
-import Plymouth from "../../assets/Plymouth.svg";
-import Roehampton from "../../assets/Roehampton.svg";
-import Solent from "../../assets/Solent.svg";
-import Southampton from "../../assets/Southampton.svg";
-import Starthclyde from "../../assets/Starthclyde.jpg";
-import Studygroup from "../../assets/Studygroup.svg";
-import TCD from "../../assets/TCD.png";
-import Ulaw from "../../assets/Ulaw.svg";
-import Ulster from "../../assets/Ulster.png";
-import Winchester from "../../assets/Winchester.svg";
+import britishcolumbia from "../../assets/british-columbia.png";
+import mcgill from "../../assets/mcgill.png";
+import Montreal from "../../assets/MontrealUniversity.png";
+import Queens from "../../assets/QueensUniversity.svg";
+import Toronto from "../../assets/toronto.svg";
+import western from "../../assets/western-university.svg";
+import melbourne from "../../assets/melbourne-university.png";
+import sydney from "../../assets/sydney-university.png";
+import unsw from "../../assets/unsw.png";
+import queensland from "../../assets/queensland.png";
+import monash from "../../assets/monash.svg";
+// import Northumbria from "../../assets/Northumbria.svg";
+// import Plymouth from "../../assets/Plymouth.svg";
+// import Roehampton from "../../assets/Roehampton.svg";
+// import Solent from "../../assets/Solent.svg";
+// import Southampton from "../../assets/Southampton.svg";
+// import Starthclyde from "../../assets/Starthclyde.jpg";
+// import Studygroup from "../../assets/Studygroup.svg";
+// import TCD from "../../assets/TCD.png";
+// import Ulaw from "../../assets/Ulaw.svg";
+// import Ulster from "../../assets/Ulster.png";
+// import Winchester from "../../assets/Winchester.svg";
 
 const UniversityShowcase = () => {
   const universities = [
@@ -26,17 +37,28 @@ const UniversityShowcase = () => {
     { name: "Cranfield University", image: Cranfield },
     { name: "University of Derby", image: Derby },
     { name: "Middlesex University", image: Middlesex },
-    { name: "Northumbria University", image: Northumbria },
-    { name: "University of Plymouth", image: Plymouth },
-    { name: "University of Roehampton", image: Roehampton },
-    { name: "Solent University", image: Solent },
-    { name: "University of Southampton", image: Southampton },
-    { name: "University of Strathclyde", image: Starthclyde },
-    { name: "Study Group", image: Studygroup },
-    { name: "Trinity College Dublin", image: TCD },
-    { name: "The University of Law", image: Ulaw },
-    { name: "Ulster University", image: Ulster },
-    { name: "University of Winchester", image: Winchester },
+    { name: "British Columbia", image: britishcolumbia },
+    { name: "McGill University", image: mcgill },
+    { name: "Montreal University", image: Montreal },
+    { name: "Queens University", image: Queens },
+    { name: "Toronto University", image: Toronto },
+    { name: "Western University", image: western },
+    { name: "Melbourne University", image: melbourne },
+    { name: "Sydney University", image: sydney },
+    { name: "UNSW", image: unsw },
+    { name: "Queensland University", image: queensland },
+    { name: "Monash University", image: monash },
+    // { name: "Northumbria University", image: Northumbria },
+    // { name: "University of Plymouth", image: Plymouth },
+    // { name: "University of Roehampton", image: Roehampton },
+    // { name: "Solent University", image: Solent },
+    // { name: "University of Southampton", image: Southampton },
+    // { name: "University of Strathclyde", image: Starthclyde },
+    // { name: "Study Group", image: Studygroup },
+    // { name: "Trinity College Dublin", image: TCD },
+    // { name: "The University of Law", image: Ulaw },
+    // { name: "Ulster University", image: Ulster },
+    // { name: "University of Winchester", image: Winchester },
   ];
 
   // Duplicate universities for smooth looping

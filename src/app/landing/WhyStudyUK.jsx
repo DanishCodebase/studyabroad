@@ -156,7 +156,7 @@ const WhyStudyUK = () => {
     <section className="w-full bg-white pb-12 md:pb-16 lg:pb-20">
       <div className="container mx-auto max-w-7xl px-4">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 text-[#A94442]">
-          Why Study in UK
+          Why Study Abroad
         </h2>
 
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-0">
