@@ -19,11 +19,12 @@ const HeroSection = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Validate all fields before submission
-    const name = e.target['Name'].value;
-    const email = e.target['Email'].value;
-    const phone = e.target['Phone Number'].value;
+
+    const form = e.currentTarget;
+    const name = form.elements.name.value;
+    const email = form.elements.email.value;
+    const phone = form.elements.phone.value;
+    const city = form.elements.city.value;
 
     if (!validateName(name)) {
       setMessage("Please enter a valid name (letters only)");
@@ -40,49 +41,48 @@ const HeroSection = () => {
       return;
     }
 
+    if (!validateName(city)) {
+      setMessage("Please enter a valid city name (letters only)");
+      return;
+    }
+
     setMessage("Submitting...");
     setIsSubmitting(true);
 
-    // Collect the form data
-    const formData = new FormData(e.target);
-    const keyValuePairs = [];
-    for (const [key, value] of formData.entries()) {
-      keyValuePairs.push(`${key}=${value}`);
-    }
+    const data = {
+      name: name,
+      email: email,
+      phone: phone,
+      city: city,
+      educationlevel: form.elements.educationlevel.value,
+      languagetest: form.elements.languagetest.value,
+    };
 
-    const formDataString = keyValuePairs.join("&");
-
-    // Send a POST request to your Google Apps Script
-    fetch(
-      "https://script.google.com/macros/s/AKfycbz_wjA9cRyDddEhzItB2AfnmyPyHBM9MWAIHGPidQcxu4e5MO8KnG3lnQp-lDidaZfI/exec",
-      {
-        redirect: "follow",
-        method: "POST",
-        body: formDataString,
-        headers: {
-          "Content-Type": "text/plain;charset=utf-8",
-        },
-      }
-    )
-      .then((response) => {
-        if (response.ok) {
-          return response.json(); // Assuming your script returns JSON response
+    // Send a POST request to your PHP script
+    fetch("https://www.nocolleges.com/submit1.php", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.success) {
+          setMessage(result.message || "Data submitted successfully!");
+          form.reset();
         } else {
-          throw new Error("Failed to submit the form.");
+          setMessage(result.message || "An error occurred.");
         }
-      })
-      .then(() => {
-        setMessage("Data submitted successfully!");
         setIsSubmitting(false);
-        e.target.reset();
 
         setTimeout(() => {
           setMessage("");
-        }, 2600);
+        }, 5000);
       })
       .catch((error) => {
         console.error(error);
-        setMessage("An error occurred while submitting the form.");
+        setMessage("A network error occurred while submitting the form.");
         setIsSubmitting(false);
       });
   };
@@ -129,7 +129,7 @@ const HeroSection = () => {
 
           <form className="space-y-4" onSubmit={handleSubmit}>
             <input
-              name="Name"
+              name="name"
               placeholder="Name"
               className="w-full bg-white p-2"
               required
@@ -137,7 +137,9 @@ const HeroSection = () => {
               title="Please enter only letters and spaces"
               onChange={(e) => {
                 if (!validateName(e.target.value)) {
-                  e.target.setCustomValidity("Please enter only letters and spaces");
+                  e.target.setCustomValidity(
+                    "Please enter only letters and spaces"
+                  );
                 } else {
                   e.target.setCustomValidity("");
                 }
@@ -145,7 +147,7 @@ const HeroSection = () => {
             />
             <input
               placeholder="Email"
-              name="Email"
+              name="email"
               type="email"
               className="w-full bg-white p-2"
               required
@@ -154,7 +156,7 @@ const HeroSection = () => {
             />
             <input
               placeholder="Phone Number"
-              name="Phone Number"
+              name="phone"
               type="tel"
               className="w-full bg-white p-2"
               required
@@ -162,11 +164,28 @@ const HeroSection = () => {
               title="Please enter a valid 10-digit Indian mobile number"
               maxLength="10"
               onChange={(e) => {
-                e.target.value = e.target.value.replace(/[^0-9]/g, '');
+                e.target.value = e.target.value.replace(/[^0-9]/g, "");
+              }}
+            />
+            <input
+              name="city"
+              placeholder="City"
+              className="w-full bg-white p-2"
+              required
+              pattern="[A-Za-z\s]+"
+              title="Please enter only letters and spaces"
+              onChange={(e) => {
+                if (!validateName(e.target.value)) {
+                  e.target.setCustomValidity(
+                    "Please enter only letters and spaces"
+                  );
+                } else {
+                  e.target.setCustomValidity("");
+                }
               }}
             />
             <select
-              name="Education Level"
+              name="educationlevel"
               className="w-full bg-white p-2"
               required
             >
@@ -177,20 +196,28 @@ const HeroSection = () => {
               <option value="Graduate">Graduate</option>
               <option value="Post Graduate">Post Graduate</option>
             </select>
-            <select name="Preferred Study Level" className="w-full bg-white p-2" required>
+            {/* <select name="Preferred Study Level" className="w-full bg-white p-2" required>
               <option value="" disabled selected>
                 Prefered Study Level
               </option>
               <option value="Graduate">Graduate</option>
               <option value="Post Graduate">Post Graduate</option>
               <option value="PhD">PhD</option>
-            </select>
-            <select name="Exam Taken" className="w-full bg-white p-2" required>
+            </select> */}
+            <select
+              name="languagetest"
+              className="w-full bg-white p-2"
+              required
+            >
               <option value="" disabled selected>
-                Have you taken up IELET/PTE exam?
+                Any Language Test Taken?
               </option>
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
+              <option value="IELTS">IELTS</option>
+              <option value="TOEFL">TOEFL</option>
+              <option value="PTE">PTE</option>
+              <option value="Duolingo">Duolingo</option>
+              <option value="Others">Others</option>
+              <option value="None">None</option>
             </select>
             <button
               type="submit"
