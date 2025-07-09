@@ -1,8 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const HeroSection = () => {
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [isDuplicate, setIsDuplicate] = useState(false);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const utmSource = params.get("utm_source");
+    const utmMedium = params.get("utm_medium");
+    const utmCampaign = params.get("utm_campaign");
+
+    if (utmSource) localStorage.setItem("utm_source", utmSource);
+    if (utmMedium) localStorage.setItem("utm_medium", utmMedium);
+    if (utmCampaign) localStorage.setItem("utm_campaign", utmCampaign);
+  }, []);
 
   // Add validation functions
   const validateName = (value) => {
@@ -17,14 +31,48 @@ const HeroSection = () => {
     return /^[6-9]\d{9}$/.test(value);
   };
 
+  useEffect(() => {
+    const submittedEntries =
+      JSON.parse(localStorage.getItem("submittedEntries")) || [];
+    const phoneExists =
+      phone && submittedEntries.some((entry) => entry.phone === phone);
+    const emailExists =
+      email && submittedEntries.some((entry) => entry.email === email);
+
+    if (phoneExists || emailExists) {
+      setIsDuplicate(true);
+      setMessage("This phone number or email has already been submitted.");
+    } else {
+      setIsDuplicate(false);
+      // Use a functional update to safely modify state without adding extra dependencies.
+      setMessage((prevMessage) =>
+        prevMessage === "This phone number or email has already been submitted."
+          ? ""
+          : prevMessage
+      );
+    }
+  }, [phone, email]);
+
+  const handlePhoneChange = (e) => {
+    const numericValue = e.target.value.replace(/[^0-9]/g, "");
+    setPhone(numericValue);
+  };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const form = e.currentTarget;
     const name = form.elements.name.value;
-    const email = form.elements.email.value;
-    const phone = form.elements.phone.value;
     const city = form.elements.city.value;
+
+    if (isDuplicate) {
+      setMessage("This phone number or email has already been submitted.");
+      return;
+    }
 
     if (!validateName(name)) {
       setMessage("Please enter a valid name (letters only)");
@@ -56,6 +104,9 @@ const HeroSection = () => {
       city: city,
       educationlevel: form.elements.educationlevel.value,
       languagetest: form.elements.languagetest.value,
+      utm_source: localStorage.getItem("utm_source") || "Stealth",
+      utm_medium: localStorage.getItem("utm_medium") || "",
+      utm_campaign: localStorage.getItem("utm_campaign") || "",
     };
 
     // Send a POST request to your PHP script
@@ -70,7 +121,15 @@ const HeroSection = () => {
       .then((result) => {
         if (result.success) {
           setMessage(result.message || "Data submitted successfully!");
+          const submittedEntries =
+            JSON.parse(localStorage.getItem("submittedEntries")) || [];
+          localStorage.setItem(
+            "submittedEntries",
+            JSON.stringify([...submittedEntries, { phone, email }])
+          );
           form.reset();
+          setPhone("");
+          setEmail("");
         } else {
           setMessage(result.message || "An error occurred.");
         }
@@ -153,6 +212,7 @@ const HeroSection = () => {
               required
               pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
               title="Please enter a valid email address"
+              onChange={handleEmailChange}
             />
             <input
               placeholder="Phone Number"
@@ -163,9 +223,7 @@ const HeroSection = () => {
               pattern="[6-9][0-9]{9}"
               title="Please enter a valid 10-digit Indian mobile number"
               maxLength="10"
-              onChange={(e) => {
-                e.target.value = e.target.value.replace(/[^0-9]/g, "");
-              }}
+              onChange={handlePhoneChange}
             />
             <input
               name="city"
@@ -219,9 +277,15 @@ const HeroSection = () => {
               <option value="Others">Others</option>
               <option value="None">None</option>
             </select>
+            {message && (
+              <p className="text-center font-semibold text-red-600">
+                {message}
+              </p>
+            )}
             <button
               type="submit"
-              className="px-10 rounded-sm py-2 block mx-auto bg-[#1a237e] hover:bg-[#1a237e]/90 text-white  text-[1.4rem] font-normal animate-bounce"
+              disabled={isDuplicate || isSubmitting}
+              className="px-10 rounded-sm py-2 block mx-auto bg-[#1a237e] hover:bg-[#1a237e]/90 text-white  text-[1.4rem] font-normal animate-bounce disabled:bg-gray-400 disabled:animate-none"
               style={{ marginTop: "2.5rem" }}
             >
               Register Now
