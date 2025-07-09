@@ -88,15 +88,18 @@ const HeroSection = () => {
   };
 
   return (
-    <main className="container mx-auto max-w-screen-xl px-4 py-4 sm:py-8 flex flex-col text-center sm:text-left md:flex-row gap-0 items-center md:items-start justify-between">
+    <main className="container mx-auto max-w-7xl py-4 sm:py-8 flex flex-col text-center sm:text-left md:flex-row gap-0 items-center md:items-start justify-between">
       {/* Left Content */}
       <div className="space-y-6 text-center mt-7 mb-10 sm:mb-0 sm:mt-10 lg:text-left">
         <div className="space-y-2 sm:space-y-4">
           <h1 className="text-[24px] leading-7 sm:text-5xl !font-light text-white">
             Planning to
             <div className="text-[40px] text-center sm:text-left sm:text-[86px] leading-[1]">
-              Study in the UK?
+              Study Abroad?
             </div>
+            {/* <div className="text-[40px] text-center sm:text-left sm:text-[86px] leading-[1]">
+              Study in the UK?
+            </div> */}
           </h1>
           <div className="bg-[#f6313f] animate-pulse text-white text-xl sm:text-5xl font-light py-2 px-4 inline-block rounded-sm">
             Apply for Upcoming Intakes 
