@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from "react";
+import australia from "../../assets/australia.png";
+import usa from "../../assets/usa.png";
+import uk from "../../assets/uk.png";
+import canada from "../../assets/canada.jpeg";
 
 const HeroSection = () => {
   const [message, setMessage] = useState("");
@@ -150,22 +154,72 @@ const HeroSection = () => {
     <main className="container mx-auto max-w-7xl px-5 py-4 sm:py-8 flex flex-col text-center sm:text-left md:flex-row gap-0 items-center md:items-start justify-between">
       {/* Left Content */}
       <div className="space-y-6 text-center mt-7 mb-10 sm:mb-0 sm:mt-20 lg:text-left">
-        <div className="space-y-2 sm:space-y-4">
-          <h1 className="text-[24px] leading-7 sm:text-5xl !font-light text-white">
-            Planning to
-            <div className="text-[40px] text-center sm:text-left sm:text-[86px] leading-[1]">
+        <div className="space-y-2 sm:space-y-5">
+          <h1 className="text-[24px] leading-7 sm:text-4xl !font-light text-white">
+            Looking to
+            <div className="text-[40px] text-center sm:text-left sm:text-7xl leading-[1]">
               Study Abroad?
             </div>
             {/* <div className="text-[40px] text-center sm:text-left sm:text-[86px] leading-[1]">
               Study in the UK?
             </div> */}
           </h1>
-          <div className="bg-[#f6313f] animate-pulse text-white text-xl sm:text-5xl font-light py-2 px-4 inline-block rounded-sm">
-            Apply for Upcoming Intakes 
+          <div className="bg-[#f6313f] text-white text-xl sm:text-2xl font-light py-2 px-4 rounded-sm flex items-center gap-2">
+            <span className="flex items-center gap-2">
+              <img src={australia} alt="Australia" className="w-10 h-10" />{" "}
+              Australia
+            </span>{" "}
+            |{" "}
+            <span className="flex items-center gap-2">
+              <img src={usa} alt="USA" className="w-10 h-10" /> USA{" "}
+            </span>{" "}
+            |{" "}
+            <span className="flex items-center gap-2">
+              <img src={uk} alt="UK" className="w-10 rounded-full h-10" /> UK{" "}
+            </span>{" "}
+            |{" "}
+            <span className="flex items-center gap-2">
+              <img
+                src={canada}
+                alt="Canada"
+                className="w-10 rounded-full h-10"
+              />{" "}
+              Canada{" "}
+            </span>
           </div>
-          <br />
-          <div className="bg-[#f6313f] animate-pulse text-white text-xl sm:text-5xl font-light py-2 px-4 inline-block rounded-sm">
-            with Planet Education
+          <div className="text-white text-xl sm:text-3xl font-light inline-block rounded-sm">
+            Rocket your future with Planet Education
+          </div>
+          <div className="mt-8 text-left">
+            <h2 className="text-xl sm:text-2xl font-light text-white mb-4">
+              Get edge-to-edge Guidance on
+            </h2>
+            <ul className="max-w-lg grid grid-cols-2">
+              {[
+                "University Shortlisting",
+                "Scholarships Guidance",
+                "Visa Consultation",
+                "Post-Study Work Options",
+              ].map((item, index) => (
+                <li key={index} className="flex items-center text-white">
+                  <svg
+                    className="w-6 h-6 mr-3 text-[#f6cb3d] flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
+                  </svg>
+                  <span className="text-lg">{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
