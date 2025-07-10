@@ -164,27 +164,29 @@ const HeroSection = () => {
               Study in the UK?
             </div> */}
           </h1>
-          <div className="bg-[#f6313f] text-white text-xl sm:text-2xl font-light py-2 px-4 rounded-sm flex items-center gap-2">
-            <span className="flex items-center gap-2">
+          <div className="bg-[#f6313f] text-white text-xl sm:text-2xl font-light py-2 px-4 rounded-sm flex flex-wrap items-center justify-between sm:justify-normal gap-2">
+            <span className="flex items-center gap-2 border-r-2 border-white pr-[22px] sm:pr-2">
               <img src={australia} alt="Australia" className="w-10 h-10" />{" "}
-              Australia
-            </span>{" "}
-            |{" "}
-            <span className="flex items-center gap-2">
-              <img src={usa} alt="USA" className="w-10 h-10" /> USA{" "}
-            </span>{" "}
-            |{" "}
-            <span className="flex items-center gap-2">
-              <img src={uk} alt="UK" className="w-10 rounded-full h-10" /> UK{" "}
-            </span>{" "}
-            |{" "}
+              <span className="whitespace-nowrap hidden sm:block">
+                Australia
+              </span>
+            </span>
+
+            <span className="flex items-center gap-2 border-r-2 border-white pr-[22px] sm:pr-2">
+              <img src={usa} alt="USA" className="w-10 h-10" />{" "}
+              <span className="whitespace-nowrap hidden sm:block">USA</span>
+            </span>
+            <span className="flex items-center gap-2 border-r-2 border-white pr-[22px] sm:pr-2">
+              <img src={uk} alt="UK" className="w-10 rounded-full h-10" />{" "}
+              <span className="whitespace-nowrap hidden sm:block">UK</span>
+            </span>
             <span className="flex items-center gap-2">
               <img
                 src={canada}
                 alt="Canada"
                 className="w-10 rounded-full h-10"
               />{" "}
-              Canada{" "}
+              <span className="whitespace-nowrap hidden sm:block">Canada</span>
             </span>
           </div>
           <div className="text-white text-xl sm:text-3xl font-light inline-block rounded-sm">
