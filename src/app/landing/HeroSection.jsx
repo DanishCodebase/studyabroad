@@ -192,7 +192,7 @@ const HeroSection = () => {
           <div className="text-white text-xl sm:text-3xl font-light inline-block rounded-sm">
             Rocket your future with Planet Education
           </div>
-          <div className="mt-8 text-left">
+          <div className="!mt-5 text-left">
             <h2 className="text-xl sm:text-2xl font-light text-white mb-4">
               Get edge-to-edge Guidance on
             </h2>
@@ -203,9 +203,9 @@ const HeroSection = () => {
                 "Visa Consultation",
                 "Post-Study Work Options",
               ].map((item, index) => (
-                <li key={index} className="flex items-center text-white">
+                <li key={index} className="flex items-start text-white">
                   <svg
-                    className="w-6 h-6 mr-3 text-[#f6cb3d] flex-shrink-0"
+                    className="w-6 h-6 mt-1 mr-3 text-[#f6cb3d] flex-shrink-0"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
