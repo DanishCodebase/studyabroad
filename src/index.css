@@ -76,3 +76,16 @@ body {
 .fixed {
   animation: slideIn 0.3s ease-out;
 }
+
+.hero-bg {
+  background-image: url('./assets/planeteducation.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 768px) {
+  .hero-bg {
+    background-image: url('./assets/planeteducation-sm.png');
+  }
+}

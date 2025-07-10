@@ -2,7 +2,8 @@ import React from "react";
 import Header from "../../components/Header";
 import HeroSection from "./HeroSection";
 import About from "./About";
-import heroBg from "../../assets/planet-banner.png";
+import heroBg from "../../assets/planeteducation.png";
+import heroBgMobile from "../../assets/planeteducation-sm.png";
 import WhyStudyAbroad from "./WhyStudyAbroad";
 import ServicesTimeline from "./ServicesTimeline";
 import UniversityShowcase from "./UniversityShowcase";
@@ -13,12 +14,6 @@ const Landing = () => {
     <>
       <div
         className="hero-bg"
-        style={{
-          backgroundImage: `url(${heroBg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
       >
         <Header />
         <HeroSection />

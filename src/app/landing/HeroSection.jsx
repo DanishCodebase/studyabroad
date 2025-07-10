@@ -151,7 +151,7 @@ const HeroSection = () => {
   };
 
   return (
-    <main className="container mx-auto max-w-7xl px-5 py-4 sm:py-8 flex flex-col text-center sm:text-left md:flex-row gap-0 items-center md:items-start justify-between">
+    <main className="container mx-auto max-w-7xl min-h-[calc(100vh-120px)] px-5 py-4 sm:py-8 flex flex-col text-center sm:text-left md:flex-row gap-0 items-center md:items-start justify-between">
       {/* Left Content */}
       <div className="space-y-6 text-center mt-7 mb-10 sm:mb-0 sm:mt-20 lg:text-left">
         <div className="space-y-2 sm:space-y-5">
@@ -229,18 +229,18 @@ const HeroSection = () => {
       {/* Right Form */}
       <div
         id="apply-now"
-        className="bg-gradient-to-br from-[#f6cb3d] to-[#f6cb3d]/90 p-6 !pt-14 shadow-xl max-w-[400px] custom-div rounded-sm"
+        className="bg-gradient-to-br from-[#f6cb3d] to-[#f6cb3d]/90 p-6 !pt-14 shadow-xl max-w-[350px] custom-div rounded-sm"
       >
         <div className="relative">
-          <h3 className="text-lg sm:text-xl text-center font-bold text-black">
-            Sign-up to choose your best-fit
+          <h3 className="text-2xl sm:text-3xl text-center mb-5 font-bold text-black">
+            Enquire Now
           </h3>
-          <h3 className="text-lg sm:text-xl text-center font-bold text-black">
+          {/* <h3 className="text-lg sm:text-xl invisible text-center font-bold text-black">
             university or college with our
           </h3>
-          <h3 className="text-lg sm:text-xl text-center font-bold text-black mb-6">
+          <h3 className="text-lg sm:text-xl invisible text-center font-bold text-black mb-6">
             expert counselors.
-          </h3>
+          </h3> */}
 
           <form className="space-y-4" onSubmit={handleSubmit}>
             <input

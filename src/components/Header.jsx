@@ -8,7 +8,7 @@ const Header = () => {
         <img
           src={logo}
           alt="Planet Education Logo"
-          className="h-9 sm:h-14 sm:invisible w-auto"
+          className="h-9 sm:h-14 w-auto"
         />
       </div>
     </header>
