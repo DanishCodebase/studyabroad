@@ -86,7 +86,7 @@ export default function Testimonials() {
 
       <div className="max-w-7xl mx-auto relative">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-black mb-4">
             Hear From Our Students
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">

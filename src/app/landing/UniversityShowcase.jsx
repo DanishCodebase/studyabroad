@@ -73,7 +73,7 @@ const UniversityShowcase = () => {
   return (
     <div className="flex justify-center items-center pt-16 bg-white p-4">
       <div className="relative w-full max-w-[1200px] bg-[#B12830] rounded-3xl px-4 sm:px-8 py-8">
-        <h2 className="text-[#F7CB3B] text-3xl font-semibold text-center mb-8">
+        <h2 className="text-[#F7CB3B] text-3xl md:text-5xl font-bold text-center mb-8">
           Our Students Studying at
         </h2>
 

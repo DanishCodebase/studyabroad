@@ -195,7 +195,7 @@ export default function ServicesTimeline() {
           isVisible ? "animate-fadeIn" : "opacity-0"
         }`}
       >
-        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        <h2 className="text-3xl md:text-5xl font-bold text-black mb-4">
           Our Services
         </h2>
       </div>
