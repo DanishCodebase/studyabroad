@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import whyStudyUK from "../../assets/WhyStudy.webp";
+import australia from "../../assets/australia-banner.jpg";
+import canada from "../../assets/canada-banner.jpg";
+import usa from "../../assets/usa-banner.jpg";
 
 // SVG Icons as components for better reusability
 const Icons = {
@@ -156,7 +159,7 @@ const studyAbroadData = {
     ]
   },
   Australia: {
-    image: whyStudyUK,
+    image: australia,
     alt: "Sydney Opera House, Australia",
     benefits: [
       {
@@ -222,7 +225,7 @@ const studyAbroadData = {
     ]
   },
   Canada: {
-    image: whyStudyUK,
+    image: canada,
     alt: "CN Tower, Toronto, Canada",
     benefits: [
       {
@@ -288,7 +291,7 @@ const studyAbroadData = {
     ]
   },
   USA: {
-    image: whyStudyUK,
+    image: usa,
     alt: "Golden Gate Bridge, San Francisco, USA",
     benefits: [
       {
