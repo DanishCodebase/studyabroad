@@ -2,22 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./gla-favicon.png" />
+    <link rel="icon" type="image/svg+xml" href="./src/assets/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Thank You - Planet Education</title>
     <!-- Google Tag Manager -->
 
     <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-KV63Z6PD");
+      !(function (e, t, a, n) {
+        (e[n] = e[n] || []),
+          e[n].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var g = t.getElementsByTagName(a)[0],
+          m = t.createElement(a);
+        (m.async = !0),
+          (m.src = "https://www.googletagmanager.com/gtm.js?id=GTM-MHBL4G5"),
+          g.parentNode.insertBefore(m, g);
+      })(window, document, "script", "dataLayer");
     </script>
 
     <!-- End Google Tag Manager -->
@@ -55,7 +54,7 @@
 
     <noscript
       ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-KV63Z6PD"
+        src="https://www.googletagmanager.com/ns.html?id=GTM-MHBL4G5"
         height="0"
         width="0"
         style="display: none; visibility: hidden"
@@ -93,11 +92,13 @@
       class="relative min-h-screen flex flex-col items-start justify-between p-5"
     >
       <!-- Logo and Badge Container -->
-      <div class="flex items-center mx-auto sm:mx-0 justify-center sm:justify-start">
+      <div
+        class="flex items-center mx-auto sm:mx-0 justify-center sm:justify-start"
+      >
         <!-- Planet Education Logo SVG -->
         <img
           class="w-[200px] rounded-sm mb-8 top-0 left-0"
-          src="/logo.svg"
+          src="/logo.png"
           alt="Planet Education Logo"
         />
       </div>
@@ -167,7 +168,6 @@
             <br />
             We will get in touch with you soon.
           </p>
-
         </div>
       </div>
 

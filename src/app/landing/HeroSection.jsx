@@ -153,7 +153,10 @@ const HeroSection = () => {
   return (
     <main className="container mx-auto max-w-7xl min-h-[calc(100vh-120px)] px-5 py-4 sm:py-8 flex flex-col text-center sm:text-left md:flex-row gap-0 items-center md:items-start justify-between">
       {/* Left Content */}
-      <div className="space-y-6 text-center mt-7 mb-10 sm:mb-0 sm:mt-20 lg:text-left">
+      <div
+        id="apply-now"
+        className="space-y-6 text-center mt-7 mb-10 sm:mb-0 sm:mt-20 lg:text-left"
+      >
         <div className="space-y-2 sm:space-y-5">
           <h1 className="text-[24px] leading-7 sm:text-4xl !font-light text-white">
             Looking to
@@ -227,10 +230,7 @@ const HeroSection = () => {
       </div>
 
       {/* Right Form */}
-      <div
-        id="apply-now"
-        className="bg-gradient-to-br from-[#f6cb3d] to-[#f6cb3d]/90 p-6 !pt-14 shadow-xl max-w-[350px] custom-div rounded-sm"
-      >
+      <div className="bg-gradient-to-br from-[#f6cb3d] to-[#f6cb3d]/90 p-6 !pt-14 shadow-xl max-w-[350px] custom-div rounded-sm">
         <div className="relative">
           <h3 className="text-2xl sm:text-3xl text-center mb-5 font-bold text-black">
             Enquire Now

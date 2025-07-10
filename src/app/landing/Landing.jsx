@@ -12,9 +12,7 @@ import Testimonials from "./Testimonials";
 const Landing = () => {
   return (
     <>
-      <div
-        className="hero-bg"
-      >
+      <div id="home" className="hero-bg">
         <Header />
         <HeroSection />
       </div>
