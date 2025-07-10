@@ -193,7 +193,7 @@ const HeroSection = () => {
             Rocket your future with Planet Education
           </div>
           <div className="!mt-5 text-left">
-            <h2 className="text-xl sm:text-2xl font-light text-white mb-4">
+            <h2 className="text-xl pl-[6px] sm:pl-0 sm:text-2xl font-light text-white mb-4">
               Get edge-to-edge Guidance on
             </h2>
             <ul className="max-w-lg grid grid-cols-2">
