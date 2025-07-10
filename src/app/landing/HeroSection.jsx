@@ -16,13 +16,9 @@ const HeroSection = () => {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const utmSource = params.get("utm_source");
-    const utmMedium = params.get("utm_medium");
-    const utmCampaign = params.get("utm_campaign");
-
-    setUtmSource(utmSource);
-    setUtmMedium(utmMedium);
-    setUtmCampaign(utmCampaign);
+    setUtmSource(params.get("utm_source"));
+    setUtmMedium(params.get("utm_medium"));
+    setUtmCampaign(params.get("utm_campaign"));
   }, []);
 
   // Add validation functions
@@ -111,9 +107,9 @@ const HeroSection = () => {
       city: city,
       educationlevel: form.elements.educationlevel.value,
       languagetest: form.elements.languagetest.value,
-      utm_source: utmSource || "Stealth",
-      utm_medium: utmMedium || "",
-      utm_campaign: utmCampaign || "",
+      utm_source: utmSource,
+      utm_medium: utmMedium,
+      utm_campaign: utmCampaign,
     };
 
     // Send a POST request to your PHP script
@@ -127,6 +123,16 @@ const HeroSection = () => {
       .then((response) => response.json())
       .then((result) => {
         if (result.success) {
+          setMessage(result.message || "Data submitted successfully!");
+          const submittedEntries =
+            JSON.parse(localStorage.getItem("submittedEntries")) || [];
+          localStorage.setItem(
+            "submittedEntries",
+            JSON.stringify([...submittedEntries, { phone, email }])
+          );
+          form.reset();
+          setPhone("");
+          setEmail("");
           window.location.href = "/thankyou.html";
         } else {
           setMessage(result.message || "An error occurred.");
