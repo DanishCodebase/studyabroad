@@ -106,6 +106,7 @@ const HeroSection = () => {
       phone: phone,
       city: city,
       educationlevel: form.elements.educationlevel.value,
+      preferreddestination: form.elements.preferreddestination.value,
       languagetest: form.elements.languagetest.value,
       utm_source: utmSource,
       utm_medium: utmMedium,
@@ -309,6 +310,19 @@ const HeroSection = () => {
               <option value="12th Pass">12th Pass</option>
               <option value="Graduate">Graduate</option>
               <option value="Post Graduate">Post Graduate</option>
+            </select>
+            <select
+              name="preferreddestination"
+              className="w-full bg-white p-2"
+              required
+            >
+              <option value="" disabled selected>
+                Preferred Study Destination
+              </option>
+              <option value="Australia">Australia</option>
+              <option value="UK">UK</option>
+              <option value="USA">USA</option>
+              <option value="Canada">Canada</option>
             </select>
             {/* <select name="Preferred Study Level" className="w-full bg-white p-2" required>
               <option value="" disabled selected>

@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         error_log("Received data on submit.php: " . print_r($formData, true));
 
         // Basic validation of required fields from the original form submission
-        $required_fields = ['name', 'email', 'phone', 'city', 'educationlevel', 'languagetest'];
+        $required_fields = ['name', 'email', 'phone', 'city', 'educationlevel', 'preferreddestination', 'languagetest'];
         $missing_fields = [];
         foreach ($required_fields as $field) {
             if (empty($formData[$field])) {
